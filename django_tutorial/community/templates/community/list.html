@@ -38,7 +38,7 @@
         <p><span> 제목 </span> <span> 이름 </span> <span>작성 날짜 </span></p>
         <ul>
         {% for article in article_list %}
-            <li><a href="/view_detail/{{article.id}}"><span> {{ article.title }}</span></a>   <span>   {{ article.name }}  </span>   <span> {{ article.cdate|date:"Y년 M d일 D" }} </span></li>
+            <li><a href="/community/view_detail/{{article.id}}"><span> {{ article.title }}</span></a>   <span>   {{ article.name }}  </span>   <span> {{ article.cdate|date:"Y년 M d일 D" }} </span></li>
             {% endfor %}
         </ul>
     </div>
