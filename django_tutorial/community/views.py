@@ -21,5 +21,6 @@ def articleList(request) :
     
     
 def viewDetail(request, num=1):
-    article_detail = Article.objects.get(id=num)
+    article_detail = Article.objects.get(id=num)  id 대신 pk
+    # article_detail = get_objects_or_404(Article, pk=num)
     return render(request, 'view_detail.html', {'article_detail' : article_detail} )
