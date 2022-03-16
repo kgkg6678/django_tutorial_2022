@@ -8,7 +8,7 @@
     <style>
         .article_box{
             width: 500px;
-            background-color: aqua;
+            background-color: rgb(139, 231, 136);
         }
         p> span{
             padding: 20px;
@@ -35,10 +35,10 @@
 </head>
 <body>
     <div class="article_box">
-        <p><span> 이름 </span> <span>제목 </span> <span>작성 날짜 </span></p>
+        <p><span> 제목 </span> <span> 이름 </span> <span>작성 날짜 </span></p>
         <ul>
         {% for article in article_list %}
-            <li><span> {{ article.title }}</span>   <span>   {{ article.name }}  </span>   <span> {{ article.cdate|date:"Y년 M d일 D" }} </span></li>
+            <li><a href="/view_detail/{{article.id}}"><span> {{ article.title }}</span></a>   <span>   {{ article.name }}  </span>   <span> {{ article.cdate|date:"Y년 M d일 D" }} </span></li>
             {% endfor %}
         </ul>
     </div>
