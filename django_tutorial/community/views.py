@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from community.forms import Form
 from .models import Article 
 # Create your views here.
@@ -21,6 +21,12 @@ def articleList(request) :
     
     
 def viewDetail(request, num=1):
-    article_detail = Article.objects.get(id=num)  id 대신 pk
-    # article_detail = get_objects_or_404(Article, pk=num)
+    # article_detail = Article.objects.get(pk=num)  #id 대신 pk
+    article_detail = get_object_or_404(Article, pk=num)
     return render(request, 'view_detail.html', {'article_detail' : article_detail} )
+
+
+def index(request):
+    latest_article_list = Article.objects.all().order_by('-cdate') [:3]
+    return render(request, 'index.html', {'latest_article_list':
+    latest_article_list})

@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from community.views import write, articleList, viewDetail
+from community.views import write, articleList, viewDetail, index
+# from django_tutorial.community.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +24,6 @@ urlpatterns = [
     path('list/', articleList, name='list'),
     #/view_detail/1/
     path('view_detail/<int:num>/', viewDetail, name='view_detail'),
+    path('', index, name='index'),
+
 ]
