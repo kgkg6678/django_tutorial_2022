@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from community.forms import Form
-
+from .models import Article 
 # Create your views here.
 def write(request):
     # form 데이터를 입력하고 확인, 데이터 저장 요청
@@ -14,7 +14,9 @@ def write(request):
     
     return render(request, 'write.html', {'form': form})
 
-    
-    
+# 글작성 목록 보여주기 
+def articleList(request) :
+    article_list =  Article.objects.all()    
+    return render(request, 'list.html', {'article_list':article_list})
     
     
