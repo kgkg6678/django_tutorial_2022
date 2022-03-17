@@ -1,3 +1,4 @@
+from email.policy import default
 from django.shortcuts import redirect, render
 from .models import CountryData
 from .forms import CountryDataForm
@@ -11,8 +12,31 @@ def dashboard(request):
     if request.method == 'POST':
     # db 입력
         form = CountryDataForm(request.POST)
+        
+        #폼에 입력한 나라 
+        input_country = form.data.get('country', None)
+        #폼에 입력한 인구수  변수에 받음 
+        input_num = form.data.get('population', None)
+
+        
         if form.is_valid():
-            form.save()
+            #db 나라이름이 중복된 경우 업데이트 
+            #아닌 경우는, 추가
+            #CRUD : Create, Read, Update, Delete
+            
+            CountryData.objects.update_or_create(
+                #filter
+                country = input_country, 
+                #new value
+                defaults = {
+                    'country' :   input_country,
+                    'population': input_num
+
+                }
+            )
+            
+            
+            # form.save()
             return redirect('.')
 
     # form 출력
