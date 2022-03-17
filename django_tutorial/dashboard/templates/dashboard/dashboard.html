@@ -18,6 +18,8 @@
     <title>Document</title>
 </head>
 <body>
+    {% load crispy_forms_tags %}
+    
     {{ dataset }}
     <div class="row mt-3 pt-3">
         <div class="col-md-4">
@@ -26,8 +28,8 @@
                 
                 <form method="post">
                     {%csrf_token%}
-                    {{ form }}
-                    <button type="submit">Add</button>
+                    {{ form | crispy }}
+                    <button type="submit" class="btn btn-success btn-block">Add</button>
                 </form>
 
 
