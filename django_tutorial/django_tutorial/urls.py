@@ -19,9 +19,9 @@ from django.urls import path, include
 from community.views import index
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
+urlpatterns = [ path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('community/', include('community.urls'))
-
+    path('community/', include('community.urls')),
+    path('dashboard/', include('dashboard.urls'))
+    
 ]

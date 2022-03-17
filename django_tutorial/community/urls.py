@@ -2,7 +2,7 @@ from django.urls import path
 from .views import write, articleList, viewDetail
 
 
-
+app_name = "community"
 urlpatterns = [
 
     path('write/', write, name='write'),
