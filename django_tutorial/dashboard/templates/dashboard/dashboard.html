@@ -23,6 +23,12 @@
         <div class="col-md-4">
             <div class="border p-3 shadow">
                 <h4>Add Data</h4>
+                
+                <form method="post">
+                    {%csrf_token%}
+                    {{ form }}
+                    <button type="submit">Add</button>
+                </form>
 
 
 
